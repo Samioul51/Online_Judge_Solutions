@@ -1,6 +1,6 @@
 /*
 
-Link: https://leetcode.com/problems/linked-list-cycle/description/https://leetcode.com/problems/linked-list-cycle/description/
+Question Link: https://leetcode.com/problems/linked-list-cycle/description/https://leetcode.com/problems/linked-list-cycle/description/
 
 */
 
