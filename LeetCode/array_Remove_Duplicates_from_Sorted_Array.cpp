@@ -1,10 +1,8 @@
 /*
 
-Link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+Question Link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
 */
-
-
 
 class Solution {
     public:
