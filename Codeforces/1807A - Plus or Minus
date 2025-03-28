@@ -1,0 +1,30 @@
+/*
+
+Question Link: https://codeforces.com/contest/1807/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void SIR(){
+    int a,b,c;
+    cin>>a>>b>>c;
+    if(a+b==c)
+        cout<<"+"<<endl;
+    else
+        cout<<"-"<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        SIR();
+    }
+    return 0;
+}
+ 
