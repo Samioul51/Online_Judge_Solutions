@@ -1,0 +1,53 @@
+/*
+
+Question Link: https://codeforces.com/contest/1703/problem/C
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void SIR(){
+    ll n;
+    cin>>n;
+    vector<ll> v(n);
+    for(int i=0;i<n;i++)cin>>v[i];
+    int j=0;
+    while(j<n){
+        ll p;
+        cin>>p;
+        string s;
+        cin>>s;
+        int val=v[j];
+        for(int i=0;i<p;i++){
+            if(s[i]=='D'){
+                if(val==9)
+                    val=0;
+                else
+                    val++;
+            }
+            else{
+                if(val==0)
+                    val=9;
+                else
+                    val--;
+            }
+        }
+        cout<<val<<" ";
+        j++;
+    }
+    cout<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        SIR();
+    }
+    return 0;
+}
+ 
