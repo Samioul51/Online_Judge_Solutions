@@ -1,0 +1,39 @@
+/*
+
+Problem Link: https://codeforces.com/contest/4/problem/C
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n;
+    cin>>n;
+    map<string,ll>m;
+    while(n--){
+        string s;
+        cin>>s;
+        if(!m.count(s)){
+            cout<<"OK"<<endl;
+            m[s]++;
+        }
+        else{
+            cout<<s<<m[s]<<endl;
+            m[s]++;
+        }
+    }
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    //cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 

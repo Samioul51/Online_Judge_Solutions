@@ -1,0 +1,53 @@
+/*
+
+Problem Link: 
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n;
+    cin>>n;
+    vector<ll> v(n);
+    for(ll i=0;i<n;i++){
+        cin>>v[i];
+    }
+    ll i=0,j=n-1,counter=1;
+    ll sereja=0,dima=0;
+    while(i<=j){
+        ll maxx;
+        if(v[i]>=v[j]){
+            maxx=v[i];
+            i++;
+        }
+        else{
+            maxx=v[j];
+            j--;
+        }
+        if(counter==1){
+            sereja+=maxx;
+            counter=0;
+        }
+        else{
+            dima+=maxx;
+            counter=1;
+        }
+    }
+
+    cout<<sereja<<" "<<dima<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    //cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 

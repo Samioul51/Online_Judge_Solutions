@@ -1,0 +1,38 @@
+/*
+
+Problem Link: https://codeforces.com/contest/918/problem/B
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,m,i;
+    cin>>n>>m;
+    map<string,string>a;
+    for(i=0;i<n;i++){
+        string x,y;
+        cin>>x>>y;
+        y.push_back(';');
+        a[y]=x;
+    }
+    while(m--){
+        string x,y;
+        cin>>x>>y;
+        cout<<x<<" "<<y<<" #"<<a[y]<<endl;
+    }    
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    //cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 

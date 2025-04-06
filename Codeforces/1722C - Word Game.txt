@@ -1,0 +1,77 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1722/problem/C
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,i,j;
+    cin>>n;
+    map<string,ll>a,b,c;
+    for(i=0;i<3;i++){
+        for(j=0;j<n;j++){
+            string s;
+            cin>>s;
+            if(i==0)
+                a[s]++;
+            else if(i==1)
+                b[s]++;
+            else
+                c[s]++;
+        }
+    }
+    ll first=0,second=0,third=0;
+    for(auto it=a.begin();it!=a.end();it++){
+        string s=it->first;
+        ll count=0;
+        if(b.count(s))
+            count++;
+        if(c.count(s))
+            count++;
+        if(count==0)
+            first+=3;
+        else if(count==1)
+            first+=1;
+    }
+    for(auto it=b.begin();it!=b.end();it++){
+        string s=it->first;
+        ll count=0;
+        if(a.count(s))
+            count++;
+        if(c.count(s))
+            count++;
+        if(count==0)
+            second+=3;
+        else if(count==1)
+            second+=1;
+    }
+    for(auto it=c.begin();it!=c.end();it++){
+        string s=it->first;
+        ll count=0;
+        if(a.count(s))
+            count++;
+        if(b.count(s))
+            count++;
+        if(count==0)
+            third+=3;
+        else if(count==1)
+            third+=1;
+    }
+    cout<<first<<" "<<second<<" "<<third<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 

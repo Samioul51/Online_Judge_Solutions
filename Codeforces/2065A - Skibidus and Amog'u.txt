@@ -1,0 +1,31 @@
+/*
+
+Problem Link: https://codeforces.com/contest/2065/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    string s;
+    cin>>s;
+    ll n=s.size(),i;
+    for(i=0;i<n-2;i++){
+        cout<<s[i];
+    }
+    cout<<"i"<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 

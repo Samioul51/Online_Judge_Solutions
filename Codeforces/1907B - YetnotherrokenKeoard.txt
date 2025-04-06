@@ -1,0 +1,70 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1907/problem/B
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    string s;
+    cin>>s;
+    deque<pair<char,ll>>a,b;
+    ll n=s.size(),i;
+    for(ll i=0;i<n;i++){
+        if(s[i]>='a' and s[i]<='z'){
+            if(s[i]=='b'){
+                if(!a.empty())
+                    a.pop_back();
+            }
+            else
+                a.push_back({s[i],i});
+        }
+        else if(s[i]>='A' and s[i]<='Z'){
+            if(s[i]=='B'){
+                if(!b.empty())
+                    b.pop_back();
+            }
+            else
+                b.push_back({s[i],i});
+        }
+    }
+    string res="";
+    ll total=a.size()+b.size();
+    for(i=0;i<total;i++){
+        ll first=a.front().second;
+        ll second=b.front().second;
+        if(!a.empty() and !b.empty() and first<second){
+            res.push_back(a.front().first);
+            a.pop_front();
+        }
+        else if(!a.empty() and !b.empty() and second<first){
+            res.push_back(b.front().first);
+            b.pop_front();
+        }
+        else if(!a.empty() and b.empty()){
+            res.push_back(a.front().first);
+            a.pop_front();
+        }
+        else if(a.empty() and !b.empty()){
+            res.push_back(b.front().first);
+            b.pop_front();
+        }
+        
+    }
+    cout<<res<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 

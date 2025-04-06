@@ -1,0 +1,30 @@
+/*
+
+Problem Link: https://codeforces.com/contest/2055/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,a,b;
+    cin>>n>>a>>b;
+    if(abs(a-b+1)%2)
+        cout<<"YES"<<endl;
+    else
+        cout<<"NO"<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 
