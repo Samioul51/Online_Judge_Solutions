@@ -1,0 +1,32 @@
+/*
+
+Problem Link: https://codeforces.com/contest/2043/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n;
+    cin>>n;
+    ll count=1;
+    while(n>3){
+        n/=4;
+        count*=2;
+    }
+    cout<<count<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 
