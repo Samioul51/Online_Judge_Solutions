@@ -1,0 +1,27 @@
+/*
+
+Problem Link: https://codeforces.com/contest/2044/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n;
+    cin>>n;
+    cout<<n-1<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 
