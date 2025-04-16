@@ -1,0 +1,39 @@
+/*
+
+Problem Link: https://codeforces.com/contest/2014/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,k,res=0,total=0,i;
+    cin>>n>>k;
+    for(i=0;i<n;i++){
+        ll val;
+        cin>>val;
+        if(val>=k)
+            total+=val;
+        else if(val==0){
+            if(total>0){
+                res++;
+                total--;
+            }
+        }
+    }
+    cout<<res<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 
