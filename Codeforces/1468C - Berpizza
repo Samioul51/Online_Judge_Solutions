@@ -1,0 +1,71 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1468/problem/C
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+class cmp{
+    public:
+        bool operator()(pair<ll,ll> a,pair<ll,ll> b){
+            if(a.first==b.first)
+                return a.second>b.second;
+            return a.first<b.first;
+        }
+};
+
+void solve(){
+    ll q,i=0;
+    cin>>q;
+    priority_queue<ll,vector<ll>,greater<ll>> mono;
+    priority_queue<pair<ll,ll>,vector<pair<ll,ll>>,cmp>poly;
+    set<ll>s;
+    while(q--){
+        ll val;
+        cin>>val;
+        if(val==1){
+            ll money;
+            cin>>money;
+            i++;
+            poly.push({money,i});
+            mono.push(i);
+        }
+        else if(val==2){
+            while(!mono.empty() and s.count(mono.top())){
+                mono.pop();
+            }
+            if(!mono.empty()){
+                ll serial=mono.top();
+                mono.pop();
+                s.insert(serial);
+                cout<<serial<<" ";
+            }
+        }
+        else if(val==3){
+            while(!poly.empty() and s.count(poly.top().second)){
+                poly.pop();
+            }
+            if(!poly.empty()){
+                ll serial=poly.top().second;
+                poly.pop();
+                s.insert(serial);
+                cout<<serial<<" ";
+            }
+        }
+    }
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    //cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 
