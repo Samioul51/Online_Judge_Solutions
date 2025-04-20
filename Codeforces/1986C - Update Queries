@@ -1,0 +1,50 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1986/problem/C
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,m,i;
+    string s,c;
+    map<ll,ll>mp;
+    cin>>n>>m;
+    cin>>s;
+    for(i=0;i<m;i++){
+        ll val;
+        cin>>val;
+        mp[val]++;
+    }
+    cin>>c;
+    sort(c.begin(),c.end());
+    ll j=0,k=m-1;
+    auto it=mp.begin();
+    while(j<=k){
+        ll val=it->first;
+        ll count=it->second;
+        if(count==1)
+            s[val-1]=c[j];
+        else if(count>1){
+            k-=(count-1);
+            s[val-1]=c[j];  
+        }
+        j++;
+        it++;
+    }
+    cout<<s<<"\n";    
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
