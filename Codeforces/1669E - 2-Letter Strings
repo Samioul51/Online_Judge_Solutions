@@ -1,0 +1,60 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1669/problem/E
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,i,res=0;
+    cin>>n;
+    vector<string> v(n);
+    map<char,map<string,ll>> a;
+    map<char,map<string,ll>> b;
+    for(i=0;i<n;i++){
+        cin>>v[i];
+        char first=v[i][0];
+        char second=v[i][1];
+        a[first][v[i]]++;
+        b[second][v[i]]++;
+    }
+    for(auto it=a.begin();it!=a.end();it++){
+        map<string,ll> c=it->second;
+        ll total=0;
+        for(auto x=c.begin();x!=c.end();x++){
+            total+=(x->second);
+        }
+        for(auto x=c.begin();x!=prev(c.end());x++){
+            ll cur=x->second;
+            total-=cur;
+            res+=(x->second)*total;
+        }
+    }
+    for(auto it=b.begin();it!=b.end();it++){
+        map<string,ll> c=it->second;
+        ll total=0;
+        for(auto x=c.begin();x!=c.end();x++){
+            total+=(x->second);
+        }
+        for(auto x=c.begin();x!=prev(c.end());x++){
+            ll cur=x->second;
+            total-=cur;
+            res+=(x->second)*total;
+        }
+    }
+    cout<<res<<endl;
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
