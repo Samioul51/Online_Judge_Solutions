@@ -154,7 +154,6 @@ void SIR(){
         
     }
     cout<<count+m<<"\n";
-
 }
 
 int main(){
