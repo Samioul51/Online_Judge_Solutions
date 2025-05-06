@@ -1,0 +1,46 @@
+/*
+
+Problem Link: https://codeforces.com/contest/501/problem/B
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,i;
+    cin>>n;
+    map<string,string> m;
+    for(i=0;i<n;i++){
+        string a,b;
+        cin>>a>>b;
+        ll counter=0;
+        for(auto it=m.begin();it!=m.end();it++){
+            if(it->second==a){
+                counter=1;
+                m[it->first]=b;
+                break;
+            }
+        }
+        if(counter==0)
+            m.insert({a,b});
+    }
+
+    cout<<m.size()<<endl;
+    for(auto it=m.begin();it!=m.end();it++){
+        cout<<it->first<<" "<<it->second<<endl;
+    }
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    //cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
+ 
