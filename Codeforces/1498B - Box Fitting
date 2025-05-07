@@ -1,0 +1,45 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1498/problem/B
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll n,k,i,res=1;
+    cin>>n>>k;
+    multiset<ll> s;
+    for(i=0;i<n;i++){
+        ll val;
+        cin>>val;
+        s.insert(val);
+    }
+    ll left=k;
+    while(!s.empty()){
+        auto it=s.upper_bound(left);
+        if(it==s.begin()){
+            res++;
+            left=k;
+        }
+        else{
+            it--;
+            left-=(*it);
+            s.erase(it);
+        }
+    }
+    cout<<res<<"\n";
+}
+
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
