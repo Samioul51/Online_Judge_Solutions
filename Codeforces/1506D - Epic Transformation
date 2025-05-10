@@ -1,0 +1,62 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1506/problem/D
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+class cmp{
+    public:
+        bool operator()(pair<ll,ll> a,pair<ll,ll> b){
+            if(a.second==b.second)
+                return a.first>b.first;
+            return a.second<b.second;
+        }
+};
+
+void solve(){
+    ll n,i;
+    cin>>n;
+    set<ll>s;
+    map<ll,ll>m;
+    priority_queue<pair<ll,ll>,vector<pair<ll,ll>>,cmp>v;
+    for(i=0;i<n;i++){
+        ll val;
+        cin>>val;
+        s.insert(val);
+        m[val]++;
+    }
+    for(auto x:s){
+        v.push({x,m[x]});
+    }
+    while(v.size()>1){
+        pair<ll,ll> a=v.top();
+        v.pop();
+        pair<ll,ll> b=v.top();
+        v.pop();
+        a.second-=1;
+        b.second-=1;
+        if(a.second>0)
+            v.push(a);
+        if(b.second>0)
+            v.push(b);
+    }
+    if(v.size()==1)
+        cout<<v.top().second<<"\n";
+    else
+        cout<<0<<"\n";
+}
+ 
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
