@@ -1,0 +1,66 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1256/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll a,b,n,total;
+    cin>>a>>b>>n>>total;
+    if(total==b){
+        cout<<"YES"<<"\n";
+        return;
+    }
+    if(total%n==0){
+        ll need=total/n;
+        if(need<=a)
+            cout<<"YES"<<"\n";
+        else{
+            ll rem=total-(a*n);
+            if(rem<=b)
+                cout<<"YES"<<"\n";
+            else
+                cout<<"NO"<<"\n";
+        }
+    }
+    else{
+        if(total>n){
+            ll need=total/n;
+            if(need<=a){
+                ll rem=total-(need*n);
+                if(rem<=b)
+                    cout<<"YES"<<"\n";
+                else
+                    cout<<"NO"<<"\n";
+            }
+            else{
+                ll rem=total-(a*n);
+                if(rem<=b)
+                    cout<<"YES"<<"\n";
+                else
+                    cout<<"NO"<<"\n";
+            }
+        }
+        else{
+            if(total<=b)
+                cout<<"YES"<<"\n";
+            else
+                cout<<"NO"<<"\n";
+        }
+    }
+}
+ 
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
