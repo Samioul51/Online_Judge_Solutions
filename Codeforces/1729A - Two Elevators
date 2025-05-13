@@ -1,0 +1,36 @@
+/*
+
+Problem Link: https://codeforces.com/contest/1729/problem/A
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+void solve(){
+    ll a,b,c;
+    cin>>a>>b>>c;
+    ll first=a-1,second;
+    if(b<c)
+        second=2*c-b-1;
+    else
+        second=b-1;
+    if(first<second)
+        cout<<1<<"\n";
+    else if(second<first)
+        cout<<2<<"\n";
+    else
+        cout<<3<<"\n";  
+}
+ 
+int main(){
+    ll tc;
+    tc = 1;
+    cin>>tc;
+    while(tc--){
+        solve();
+    }
+    return 0;
+}
